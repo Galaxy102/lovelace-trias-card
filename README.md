@@ -1,28 +1,26 @@
-# Lovelace card for Berlin (BVG) and Brandenburg (VBB) transport integration
+# Lovelace card for TRIAS integration
 
-Custom lovelace card that displays upcoming departures from your defined public transport stops for Berlin and Brandenburg.
+Custom lovelace card that displays upcoming departures from your defined public transport stops from the TRIAS integration.
 
-**The integration itself can be found here: https://github.com/vas3k/home-assistant-berlin-transport**
+**The integration itself can be found here: https://github.com/JonasJoKuJonas/homeassistant-trias**
 
 This card works only after you installed and configured the integration.
 
 ![](./docs/screenshots/timetable-card.jpg)
 
-> I use [iOS Dark Mode Theme](https://github.com/basnijholt/lovelace-ios-dark-mode-theme) by @basnijholt, installed from [HACS](https://hacs.xyz/)
-
 ## 💿 Installation
 
 This Lovelace card can be installed via [HACS](https://hacs.xyz/) or manually.
 
-> ⚠️ Make sure you installed the [BVG integration](https://github.com/vas3k/home-assistant-berlin-transport) first. This card would not work without it.
+> ⚠️ Make sure you installed the [TRIAS integration](https://github.com/JonasJoKuJonas/homeassistant-trias) first. This card would not work without it.
 
 ### Using HACS
 
 **1.** Open HACS interface from your Home Assistant sidebar
 
-**2.** Add [this repository](https://github.com/vas3k/lovelace-berlin-transport-card) as a custom repository (Three dots in top right corner -> Custom repositories)
+**2.** Add [this repository](https://github.com/Galaxy102/lovelace-trias-card) as a custom repository (Three dots in top right corner -> Custom repositories)
 
-**3.** Select "Lovelace" as a category
+**3.** Select "Dashboard" as a category
 
 **4.** Go to `Settings -> Devices & Services -> Add integration` and search for this card name (just type `Berlin`)
 
