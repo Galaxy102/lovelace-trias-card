@@ -17,7 +17,7 @@ class TriasCard extends HTMLElement {
      */
     static extractMinutes(duration) {
         // Validate format
-        if (!/^\d{2}:\d{2}:\d{2}$/.test(duration)) {
+        if (!/^\d{1,2}:\d{1,2}:\d{1,2}$/.test(duration)) {
             return null;
         }
 
@@ -90,20 +90,22 @@ class TriasCard extends HTMLElement {
                 content += `<div class="stop">${entity.attributes.friendly_name}</div>`;
             }
 
-            console.log(entity)
-
             const timetable = entity.attributes.departures.slice(0, maxEntries).map((departure) => {
                 const delay = departure.CurrentDelay === null ? `` : TriasCard.extractMinutes(departure.CurrentDelay);
                 const delayDiv = delay > 0 ? `<div class="delay delay-pos">+${delay}</div>` : `<div class="delay delay-neg">${delay === 0 ? '+0' : delay}</div>`;
-                const timetabledTimestamp = new Date(departure.TimetabledTime).getTime();
-                const estimatedTimestamp = new Date(departure.EstimatedTime).getTime();
+                const timetabledTimestamp = new Date(departure.TimetabledTime);
+                const estimatedTimestamp = new Date(departure.EstimatedTime);
+                const formatter = new Intl.DateTimeFormat(undefined, {
+                    hour: "numeric",
+                    minute: "numeric"
+                });
 
                 return `<div class="departure">
                     <div class="line">
                         <div class="line-icon" style="background-color: ${TriasCard.meanToColor(departure.mode)}">${departure.PublishedLineName}</div>
                     </div>
                     <div class="direction">${departure.DestinationText}</div>
-                    <div class="time">${showTimetableTime ? timetabledTimestamp : ''}${showEstimatedTime ? estimatedTimestamp : ''}${showDelay ? delayDiv : ''}</div>
+                    <div class="time">${showTimetableTime ? formatter.format(timetabledTimestamp) : ''}${showEstimatedTime ? formatter.format(estimatedTimestamp) : ''}${showDelay ? delayDiv : ''}</div>
                 </div>`
             });
 
