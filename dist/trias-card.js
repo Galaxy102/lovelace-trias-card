@@ -168,7 +168,6 @@ class TriasCard extends HTMLElement {
                 text-align: right;
             }
             .line-icon {
-                display: inline-block;
                 border-radius: 20px;
                 padding: 7px 10px 5px;
                 font-size: 120%;
