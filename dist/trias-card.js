@@ -90,7 +90,9 @@ class TriasCard extends HTMLElement {
                 content += `<div class="stop">${entity.attributes.friendly_name}</div>`;
             }
 
-            const timetable = entity.attributes.Departures.slice(0, maxEntries).map((departure) => {
+            console.log(entity)
+
+            const timetable = entity.attributes.departures.slice(0, maxEntries).map((departure) => {
                 const delay = departure.CurrentDelay === null ? `` : TriasCard.extractMinutes(departure.CurrentDelay);
                 const delayDiv = delay > 0 ? `<div class="delay delay-pos">+${delay}</div>` : `<div class="delay delay-neg">${delay === 0 ? '+0' : delay}</div>`;
                 const timetabledTimestamp = new Date(departure.TimetabledTime).getTime();
