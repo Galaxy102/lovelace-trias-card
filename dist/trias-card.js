@@ -48,7 +48,7 @@ class TriasCard extends HTMLElement {
             case 'coach':
                 return '#00586a'
             case 'rail':
-                return '#4d4d4d'
+                return '#008d4f'
             case 'intercityRail':
                 return '#646973'
             case 'urbanRail':
